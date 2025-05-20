@@ -1,13 +1,21 @@
 import pandas as pd
-import os
 import streamlit as st
 import plotly.express as px
 
 def load_data():
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
-    benin = pd.read_csv(os.path.join(base_path, 'eda-benin.csv'))
-    sierra = pd.read_csv(os.path.join(base_path, 'sierra_leone.csv'))
-    togo = pd.read_csv(os.path.join(base_path, 'eda-togo.csv'))
+    # Extract file IDs
+    benin_id = "1D2yMBSSBIhNjSlmTstQF1rcL5owixA8_"
+    sierra_id = "11VmH616dA_uCQGW3ie6QqgrFv-BXUrAD"
+    togo_id = "1RjjKDc8yo9bHsktGWmrPCO5WPalSUgdF"
+
+    # Convert to direct download links
+    benin_url = f"https://drive.google.com/uc?id={benin_id}"
+    sierra_url = f"https://drive.google.com/uc?id={sierra_id}"
+    togo_url = f"https://drive.google.com/uc?id={togo_id}"
+
+    benin = pd.read_csv(benin_url)
+    sierra = pd.read_csv(sierra_url)
+    togo = pd.read_csv(togo_url)
 
     benin['country'] = 'Benin'
     sierra['country'] = 'Sierra Leone'
