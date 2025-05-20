@@ -5,3 +5,5 @@ matplotlib
 seaborn
 streamlit
 pytest
+plotly
+
